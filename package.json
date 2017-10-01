@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Angular webpack starter",
     "scripts": {
-        "start": "webpack-dev-server --inline --progress --port 8080",
+        "start": "webpack-dev-server --inline --hot --progress --port 8080",
         "test": "karma start",
         "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
     },
@@ -26,6 +26,10 @@
         "@types/jasmine": "2.5.36",
         "angular2-template-loader": "^0.6.0",
         "awesome-typescript-loader": "^3.0.4",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-preset-env": "^1.6.0",
+        "babel-preset-es2015": "^6.24.1",
         "css-loader": "^0.26.1",
         "extract-text-webpack-plugin": "2.0.0-beta.5",
         "file-loader": "^0.9.0",
