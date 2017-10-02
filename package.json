@@ -1,11 +1,15 @@
 {
-    "name": "Lesson-on-coding-angular-webpack",
+    "name": "lesson-on-coding-angular-webpack",
     "version": "1.0.0",
     "description": "Angular webpack starter",
     "scripts": {
         "start": "webpack-dev-server --inline --hot --progress --port 8080",
         "test": "karma start",
-        "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
+        "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
+        "build:aot": "ngc -p tsconfig-aot.json",
+        "build-aot-prod": "npm run build:aot && npm run webpack-prod",
+        "webpack-dev": "cross-env NODE_ENV=development webpack",
+        "webpack-prod": "cross-env NODE_ENV=production webpack"
     },
     "license": "MIT",
     "dependencies": {

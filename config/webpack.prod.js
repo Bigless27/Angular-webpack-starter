@@ -19,10 +19,13 @@ module.exports = webpackMerge(commonConfig, {
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.optimize.UglifyJsPlugin({
-            // https://github.com/angular/angular/issues/10618
-            mangle: {
-                keep_fnames: true
-            }
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            },
+            sourceMap: false
         }),
         new ExtractTextPlugin('[name].[hash].css'),
         new webpack.DefinePlugin({

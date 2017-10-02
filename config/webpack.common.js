@@ -18,9 +18,15 @@ module.exports = {
     module: {
         rules: [{
                 test: /\.ts$/,
-                loaders: [{
+                loaders: [
+                    'babel-loader',
+                    {
                         loader: 'awesome-typescript-loader',
-                        options: { configFileName: helpers.root('tsconfig.json') }
+                        options: {
+                            configFileName: isProd ?
+                                helpers.root('tsconfig-aot.json') :
+                                helpers.root('tsconfig.json')
+                        }
                     },
                     'angular2-template-loader'
                 ],
