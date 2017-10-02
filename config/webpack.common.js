@@ -5,6 +5,7 @@ var helpers = require('./helpers');
 
 module.exports = {
     entry: {
+        polyfills: './src/polyfills.ts',
         vendor: './src/vendor.ts',
         app: './src/main.ts'
     },
@@ -18,11 +19,20 @@ module.exports = {
                 test: /\.ts$/,
                 loaders: [{
                         loader: 'awesome-typescript-loader',
-                        options: { configFileName: helpers.root('src', 'tsconfig.json') }
+                        options: { configFileName: helpers.root('tsconfig.json') }
                     },
                     'angular2-template-loader'
-                ]
+                ],
+                exclude: [/node_modules/]
             },
+            // {
+            //     test: /\.js$/,
+            //     loader: 'babel-loader',
+            //     exclude: /node_modules/,
+            //     query: {
+            //         presets: ['es2015']
+            //     }
+            // },
             {
                 test: /\.html$/,
                 loader: 'html-loader'
@@ -38,14 +48,6 @@ module.exports = {
                     fallbackLoader: 'style-loader',
                     loader: 'css-loader?sourceMap'
                 })
-            },
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015']
-                }
             },
             {
                 test: /\.css$/,
