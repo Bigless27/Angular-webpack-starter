@@ -2,12 +2,13 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
+var isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
     entry: {
         polyfills: './src/polyfills.ts',
         vendor: './src/vendor.ts',
-        app: './src/main.ts'
+        app: isProd ? './src/main.aot.ts' : './src/main.ts'
     },
 
     resolve: {
