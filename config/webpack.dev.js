@@ -26,6 +26,8 @@ module.exports = webpackMerge(commonConfig, {
             'process.env': {
                 API_URL: JSON.stringify('http://localhost:5000/api/')
             }
-        })
+        }),
+
+        new webpack.NamedModulesPlugin()
     ]
 });
