@@ -8,6 +8,9 @@ A complete tutorial on setting up a highly scalable and configurable Angular 4 p
 - npm run start
 
 ### Building AOT
-- npm run build-aot-prod
+- Aot
+  - npm run build:aot
+- Production
+  - npm run build-aot-prod
 
 
