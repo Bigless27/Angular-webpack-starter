@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
+var isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
     entry: {
@@ -23,7 +24,8 @@ module.exports = {
                         loader: 'awesome-typescript-loader',
                         options: {
                             configFileName: isProd ?
-                                helpers.root('tsconfig-aot.json') : helpers.root('tsconfig.json')
+                                helpers.root('tsconfig-aot.json') :
+                                helpers.root('tsconfig.json')
                         }
                     },
                     'angular2-template-loader'
