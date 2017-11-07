@@ -9,7 +9,12 @@ const ENV = (process.env.NODE_ENV = process.env.ENV = 'production');
 module.exports = webpackMerge(commonConfig, {
     devtool: 'source-map',
 
-
+    output: {
+        path: helpers.root('dist'),
+        publicPath: '/',
+        filename: '[name].bundle.js',
+        chunkFilename: '[id].chunk.js'
+    },
 
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
